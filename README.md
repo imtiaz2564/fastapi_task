@@ -40,3 +40,32 @@ db → MySQL container hostname inside Docker network
 fastapi_db → Database name
 
 Note: The host port 3307 maps to container port 3306 for local access.
+
+## Database
+
+Database name: fastapi_db
+
+Tables created on startup:
+
+users
+
+materials
+
+product_types
+
+items
+
+token_sessions
+
+## Testing the API
+
+You can use a browser, curl, or Postman:
+
+curl http://localhost:8000
+
+
+## Or explore the interactive docs at:
+
+Swagger UI: http://localhost:8000/docs
+
+ReDoc: http://localhost:8000/redoc
