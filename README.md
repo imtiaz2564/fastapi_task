@@ -6,7 +6,7 @@ Clone the repository:
 
 git clone https://github.com/imtiaz2564/fastapi_task.git
 
-cd fastapi-task-app
+cd fastapi_task
 
 ## Build and Start the Containers
 
