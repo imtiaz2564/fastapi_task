@@ -1,68 +1,9 @@
-# import pytest
-#
-# @pytest.fixture
-# def jwt_token(client):
-#     client.post("/auth/register", json={"username": "ptype", "password": "ptypepass"})
-#     res = client.post("/auth/login", json={"username": "ptype", "password": "ptypepass"})
-#     return res.json()["access_token"]
-#
-# def test_create_product_type(client, jwt_token):
-#     res = client.post(
-#         "/product-types/",
-#         headers={"Authorization": f"Bearer {jwt_token}"},
-#         json={"name": "Electronics", "description": "Devices"},
-#     )
-#     assert res.status_code in [200, 201]
-#     assert res.json()["name"] == "Electronics"
-#
-# def test_update_product_type(client, jwt_token):
-#     res = client.post(
-#         "/product-types/",
-#         headers={"Authorization": f"Bearer {jwt_token}"},
-#         json={"name": "Furniture", "description": "Home items"},
-#     )
-#     pt_id = res.json()["id"]
-#
-#     res = client.put(
-#         f"/product-types/{pt_id}",
-#         headers={"Authorization": f"Bearer {jwt_token}"},
-#         json={"name": "Office Furniture", "description": "Desks and chairs"},
-#     )
-#     assert res.status_code == 200
-#     assert res.json()["name"] == "Office Furniture"
-#
-# def test_delete_product_type(client, jwt_token):
-#     res = client.post(
-#         "/product-types/",
-#         headers={"Authorization": f"Bearer {jwt_token}"},
-#         json={"name": "Temporary", "description": "To be deleted"},
-#     )
-#     pt_id = res.json()["id"]
-#
-#     res = client.delete(
-#         f"/product-types/{pt_id}",
-#         headers={"Authorization": f"Bearer {jwt_token}"},
-#     )
-#     assert res.status_code in [200, 204]
-#
-#     res = client.get(f"/product-types/{pt_id}")
-#     assert res.status_code in [404, 400]
 import pytest
 import uuid
 from httpx import AsyncClient, ASGITransport
 from asgi_lifespan import LifespanManager
 from app.main import app
 from app.database import engine, Base
-
-
-# --- DB RESET FIXTURE ---
-# @pytest.fixture(scope="function", autouse=True)
-# async def reset_db():
-#     """Drop and recreate all tables before each test."""
-#     async with engine.begin() as conn:
-#         await conn.run_sync(Base.metadata.drop_all)
-#         await conn.run_sync(Base.metadata.create_all)
-#     yield
 
 
 # --- CREATE ---
