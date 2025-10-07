@@ -3,7 +3,7 @@ import uuid
 from httpx import AsyncClient, ASGITransport
 from asgi_lifespan import LifespanManager
 from app.main import app
-from app.database import engine, Base
+from app.db.database import engine, Base
 
 
 # --- CREATE ---

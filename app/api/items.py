@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from PIL import Image
 from reportlab.pdfgen import canvas
-from . import models, schemas, database
+from app.db import models, schemas, database
 
 router = APIRouter(prefix="/items", tags=["items"])
 

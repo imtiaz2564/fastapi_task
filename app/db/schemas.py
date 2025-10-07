@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, constr
 from typing import Optional
 
 
@@ -25,7 +25,7 @@ class UserRead(BaseModel):
 
 # Materials
 class MaterialCreate(BaseModel):
-    name: str
+    name: constr(min_length=1)
     description: str | None = None
 
 class MaterialRead(BaseModel):

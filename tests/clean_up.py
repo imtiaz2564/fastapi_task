@@ -1,4 +1,3 @@
-# tests/cleanup_test_db.py
 import asyncio
 import sys
 from pathlib import Path
@@ -6,8 +5,8 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from app.database import async_session_maker
-from app import models
+from app.db.database import async_session_maker
+from app.db import models
 
 async def cleanup_database():
     async with async_session_maker() as session:

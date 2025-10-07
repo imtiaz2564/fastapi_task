@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-from . import auth, materials, product_types, items, database, models
+from app.api import auth, materials, product_types, items 
+from app.db import database, models
 
 
 @asynccontextmanager

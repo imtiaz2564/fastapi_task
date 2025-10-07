@@ -17,8 +17,8 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 
 # Import from app package
 from app.main import app
-from app.database import Base, async_session_maker
-from app.auth import get_db
+from app.db.database import Base, async_session_maker
+from app.api.auth import get_db
 
 # Use MySQL for testing (same as your development database but with test database)
 TEST_DATABASE_URL = "mysql+aiomysql://root:root@localhost:3306/test_fastapi_db"
